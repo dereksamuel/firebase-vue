@@ -1,6 +1,7 @@
 <template>
   <div>
-    Muro
+    <span>Muro con icono</span>
+    <i class="fas fa-camera"></i>
   </div>
 </template>
 
