@@ -1,6 +1,6 @@
 {
-  "name": "firebase-vue",
-  "short_name": "firebase-vue",
+  "name": "course-diary",
+  "short_name": "course-diary",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

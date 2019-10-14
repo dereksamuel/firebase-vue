@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <div>Creditos</div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "creditos"
 };
 </script>

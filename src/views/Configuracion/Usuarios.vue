@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <div>Usuarios</div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "usuarios"
 };
 </script>

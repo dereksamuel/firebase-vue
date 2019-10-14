@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <div>Agrupaciones</div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "agrupaciones"
 };
 </script>

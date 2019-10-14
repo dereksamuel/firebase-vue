@@ -1,9 +1,11 @@
 <template>
-  <router-view/>
+  <div>
+    Muro
+  </div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "muro"
 };
 </script>

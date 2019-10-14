@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <div>Mensaje nuevo</div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "mensaje_nuevo"
 };
 </script>

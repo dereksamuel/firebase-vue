@@ -1,9 +1,9 @@
 <template>
-  <router-view/>
+  <div>Historial</div>
 </template>
 
 <script>
 export default {
-  name: "home"
+  name: "historial"
 };
 </script>

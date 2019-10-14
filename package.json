@@ -9,9 +9,11 @@
     "hosting": "npm run build && firebase deploy"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
     "firebase": "^7.1.0",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
