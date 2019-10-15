@@ -1,34 +1,52 @@
 <template>
-<div style="width: 100vw;">
-  <div class="circular-menu" :class="{ active: showLeftMenu }">
+  <div style="width: 100vw;">
+    <div class="circular-menu" :class="{ active: showLeftMenu }">
+      <a class="floating-btn" @click="changeLeft()">
+        <i class="fa fa-plus"></i>
+      </a>
 
-    <a class="floating-btn" @click="changeLeft()">
-      <i class="fa fa-plus"></i>
-    </a>
+      <menu class="items-wrapper">
+        <router-link
+          to="/mensaje_nuevo"
+          class="menu-item fas fa-envelope"
+          style="display: none;"
+        ></router-link>
+        <router-link
+          to="/mensaje_nuevo"
+          class="menu-item fas fa-envelope"
+        ></router-link>
+        <router-link
+          to="/configuracion"
+          class="menu-item fas fa-cog"
+        ></router-link>
+      </menu>
+    </div>
 
-    <menu class="items-wrapper">
-      <router-link to="/mensaje_nuevo" class="menu-item fas fa-envelope" style="display: none;"></router-link>
-      <router-link to="/mensaje_nuevo" class="menu-item fas fa-envelope"></router-link>
-      <router-link to="/configuracion" class="menu-item fas fa-cog"></router-link>
-    </menu>
-  
+    <div
+      class="circular-menu circular-menu-left"
+      :class="{ active: showRightMenu }"
+    >
+      <a class="floating-btn" @click="changeRight()">
+        <i class="fa fa-bars  fas fa-bars"></i>
+      </a>
+
+      <menu class="items-wrapper">
+        <router-link to="/muro" class="menu-item fa fa-home"></router-link>
+        <router-link
+          to="/historial"
+          class="menu-item fas fa-history"
+        ></router-link>
+        <router-link
+          to="/creditos"
+          class="menu-item fas fa-book-reader"
+        ></router-link>
+        <router-link
+          to="/login"
+          class="menu-item fas fa-sign-out-alt"
+        ></router-link>
+      </menu>
+    </div>
   </div>
-
-  <div class="circular-menu circular-menu-left" :class="{ active: showRightMenu }">
-  
-    <a class="floating-btn" @click="changeRight()">
-      <i class="fa fa-bars  fas fa-bars"></i>
-    </a>
-  
-    <menu class="items-wrapper">
-      <router-link to="/muro" class="menu-item fa fa-home"></router-link>
-      <router-link to="/historial" class="menu-item fas fa-history"></router-link>
-      <router-link to="/creditos" class="menu-item fas fa-book-reader"></router-link>
-      <router-link to="/login" class="menu-item fas fa-sign-out-alt"></router-link>
-    </menu>
-  
-  </div>
-</div>
 </template>
 
 <script>
@@ -42,15 +60,15 @@ export default {
 
   methods: {
     changeLeft() {
-      this.showLeftMenu = !this.showLeftMenu
+      this.showLeftMenu = !this.showLeftMenu;
       if (this.showLeftMenu) this.showRightMenu = false;
     },
     changeRight() {
-      this.showRightMenu = !this.showRightMenu
+      this.showRightMenu = !this.showRightMenu;
       if (this.showRightMenu) this.showLeftMenu = false;
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -65,8 +83,8 @@ export default {
   width: 3.5em;
   height: 3.5em;
   border-radius: 50%;
-  background-color:hsl(17, 100%, 66%);
-  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, .26);  
+  background-color: hsl(17, 100%, 66%);
+  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, 0.26);
   color: hsl(0, 0%, 100%);
   text-align: center;
   line-height: 3.9;
@@ -75,16 +93,16 @@ export default {
 }
 
 .circular-menu.active .floating-btn {
-  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
+  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, 0.3);
 }
 
 .circular-menu .floating-btn:active {
-  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 .circular-menu .floating-btn i {
   font-size: 1.3em;
-  transition: transform .2s;  
+  transition: transform 0.2s;
 }
 
 .circular-menu.active .floating-btn i {
@@ -93,7 +111,7 @@ export default {
 
 .circular-menu:after {
   display: block;
-  content: ' ';
+  content: " ";
   width: 3.5em;
   height: 3.5em;
   border-radius: 50%;
@@ -102,12 +120,12 @@ export default {
   right: 0;
   z-index: -2;
   background-color: hsl(17, 100%, 66%);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .circular-menu.active:after {
   transform: scale3d(5.5, 5.5, 1);
-  transition-timing-function: cubic-bezier(.68, 1.55, .265, 1);
+  transition-timing-function: cubic-bezier(0.68, 1.55, 0.265, 1);
 }
 
 .circular-menu .items-wrapper {
@@ -117,8 +135,8 @@ export default {
 
 .circular-menu .menu-item {
   position: absolute;
-  top: .2em;
-  right: .2em;
+  top: 0.2em;
+  right: 0.2em;
   z-index: -1;
   display: block;
   text-decoration: none;
@@ -129,12 +147,12 @@ export default {
   border-radius: 50%;
   text-align: center;
   line-height: 3;
-  background-color: hsla(0,0%,0%,.1);
-  transition: transform .3s ease, background .2s ease;
+  background-color: hsla(0, 0%, 0%, 0.1);
+  transition: transform 0.3s ease, background 0.2s ease;
 }
 
 .circular-menu .menu-item:hover {
-  background-color: hsla(0,0%,0%,.3);
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 .circular-menu.active .menu-item {
@@ -142,19 +160,19 @@ export default {
 }
 
 .circular-menu.active .menu-item:nth-child(1) {
-  transform: translate3d(1em,-7em,0);
+  transform: translate3d(1em, -7em, 0);
 }
 
 .circular-menu.active .menu-item:nth-child(2) {
-  transform: translate3d(-3.5em,-6.3em,0);
+  transform: translate3d(-3.5em, -6.3em, 0);
 }
 
 .circular-menu.active .menu-item:nth-child(3) {
-  transform: translate3d(-6.5em,-3.2em,0);
+  transform: translate3d(-6.5em, -3.2em, 0);
 }
 
 .circular-menu.active .menu-item:nth-child(4) {
-  transform: translate3d(-7em,1em,0);
+  transform: translate3d(-7em, 1em, 0);
 }
 
 /**
@@ -162,7 +180,7 @@ export default {
  */
 
 .circular-menu.circular-menu-left {
-  right: auto; 
+  right: auto;
   left: 1em;
 }
 
@@ -179,18 +197,18 @@ export default {
 }
 
 .circular-menu.circular-menu-left.active .menu-item:nth-child(1) {
-  transform: translate3d(-1em,-7em,0);
+  transform: translate3d(-1em, -7em, 0);
 }
 
 .circular-menu.circular-menu-left.active .menu-item:nth-child(2) {
-  transform: translate3d(3.5em,-6.3em,0);
+  transform: translate3d(3.5em, -6.3em, 0);
 }
 
 .circular-menu.circular-menu-left.active .menu-item:nth-child(3) {
-  transform: translate3d(6.5em,-3.2em,0);
+  transform: translate3d(6.5em, -3.2em, 0);
 }
 
 .circular-menu.circular-menu-left.active .menu-item:nth-child(4) {
-  transform: translate3d(7em,1em,0);
+  transform: translate3d(7em, 1em, 0);
 }
 </style>
