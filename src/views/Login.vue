@@ -26,7 +26,7 @@
           aria-describedby="password-field"
         />
       </div>
-      <a title="Login" href="inicio.html">
+      <a title="Login" href="/muro">
         <img :src="thumbs" width="70" alt="Login" />
       </a>
     </div>

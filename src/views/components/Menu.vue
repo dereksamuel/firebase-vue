@@ -7,10 +7,9 @@
     </a>
 
     <menu class="items-wrapper">
-      <a href="#" class="menu-item fa fa-facebook"></a>
-      <a href="#" class="menu-item fa fa-twitter"></a>
-      <a href="#" class="menu-item fa fa-google-plus"></a>
-      <a href="#" class="menu-item fa fa-linkedin"></a>
+      <router-link to="/mensaje_nuevo" class="menu-item fas fa-envelope" style="display: none;"></router-link>
+      <router-link to="/mensaje_nuevo" class="menu-item fas fa-envelope"></router-link>
+      <router-link to="/configuracion" class="menu-item fas fa-cog"></router-link>
     </menu>
   
   </div>
@@ -22,10 +21,10 @@
     </a>
   
     <menu class="items-wrapper">
-      <a href="index.html" class="menu-item fa fa-home"></a>
-      <a href="#" class="menu-item fa fa-user"></a>
-      <a href="#" class="menu-item fa fa-pie-chart"></a>
-      <a href="#" class="menu-item fa fa-cog"></a>
+      <router-link to="/muro" class="menu-item fa fa-home"></router-link>
+      <router-link to="/historial" class="menu-item fas fa-history"></router-link>
+      <router-link to="/creditos" class="menu-item fas fa-book-reader"></router-link>
+      <router-link to="/login" class="menu-item fas fa-sign-out-alt"></router-link>
     </menu>
   
   </div>
