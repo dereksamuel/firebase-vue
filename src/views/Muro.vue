@@ -26,7 +26,7 @@
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 body{
-  background-image:url("wall.png")
+  background-image:url("/wall.png")
 }
 header{
   width:100%;
@@ -35,7 +35,6 @@ header{
  
 }
 h2{
-  width:100%;
   overflow:hidden;
   background:#f6cd90;
   text-align: center;

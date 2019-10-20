@@ -12,9 +12,9 @@
     </h2>
     <h3>
     <font size="4">
-    Aquí van los mensajes almacenados por el programa
+    &nbspAquí van los mensajes almacenados por el programa
      <hr>
-     Lo anterior fue un hr
+     &nbspLo anterior fue un hr
      <hr>
     </font>
     </h3>
