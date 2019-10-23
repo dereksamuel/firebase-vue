@@ -1,30 +1,34 @@
-<template>   
+<template>
   <div>
     <h1>
       <font size="4">
         CREAR NUEVO MENSAJE
-       <hr>
-       &nbsp&nbsp&nbsp&nbspPara: 
-       <input
+        <hr />
+        Para:
+        <input
           type="inputmode"
           class="form-control"
           aria-label="Username"
           placeholder="Cursos, Estudiantes y Grados"
           aria-describedby="password-field"
-       />
-       <hr>
-       &nbsp&nbsp&nbsp&nbspAsunto:<input
+        />
+        <hr />
+        Asunto:<input
           type="text"
           class="form-control"
           aria-label="username"
           aria-describedby="password-field"
           placeholder="Temática"
-       />
-       <hr>
-       <textarea type="mensaje" placeholder="Escriba aquí su mensaje" cols="60"></textarea>
-       <hr>
-       <div id="app">
-         <p><i class="fas fa-link"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fas fa-paper-plane"></i></p>
+        />
+        <hr />
+        <textarea
+          type="mensaje"
+          placeholder="Escriba aquí su mensaje"
+          cols="60"
+        ></textarea>
+        <hr />
+        <div id="app">
+          <p><i class="fas fa-link"></i><i class="fas fa-paper-plane"></i></p>
         </div>
       </font>
     </h1>
@@ -32,23 +36,23 @@
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
-h1{
-  width: 490px;
-  font-family:Courgette;
-  text-align:left;
-  margin:auto;
-  margin-top:100px;
-  height:auto;
-  font-family:Bree Serif;
+h1 {
+  width: 100%;
+  font-family: Courgette;
+  text-align: left;
+  margin: auto;
+  margin-top: 100px;
+  height: auto;
+  font-family: Bree Serif;
   position: relative;
-  background:rgba(0,0,0,0.2);
-  padding:20px 20px;
-  border:none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 20px;
+  border: none;
 }
-textarea{
- min-height:100px;
- max-height:200px;
- max-width:100%;
+textarea {
+  min-height: 150px;
+  max-height: 200px;
+  max-width: 100%;
 }
 </style>
 <script>

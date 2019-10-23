@@ -1,42 +1,51 @@
 <template>
 <div>
-    <header>
-    <font size="3">
-    Course Diary
-    </font>
-    </header>
-    <h2>
-    <font size="5">
-    MURO
-    </font>
-    </h2>
-    <div class="quote-container">
-      <i class="pin"></i>
-      <blockquote class="note yellow">
-      Mensaje
-      <hr>
-      Cuerpo de este 
-      <hr>
-      <cite class="author">El autor del escrito</cite>
-      </blockquote>
+  <header>
+    <span class="logo">
+      Course Diary
+    </span>
+    <span class="areaname">
+      MURO
+    </span>
+  </header>
+  <div class="row">
+    <div class="col-12">
+      <div class="quote-container">
+        <i class="pin"></i>
+        <blockquote class="note yellow">
+          Mensaje
+          <hr />
+          Cuerpo de este
+          <hr />
+          <cite class="author">El autor del escrito</cite>
+        </blockquote>
+      </div>
     </div>
+  </div>
 </div>
 </template>
 <style scoped>
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
-body{
-  background-image:url("/wall.png")
+
+.logo {
+  font-size: 1.2em;
+  padding-left: 10px;
 }
-header{
-  width:100%;
-  overflow:hidden;
-  background:#FFAE40;
- 
+.areaname {
+  font-size: 1.5em;
+  padding-left: 20px;
 }
-h2{
-  overflow:hidden;
-  background:#f6cd90;
+body {
+  background-image: url("/wall.png");
+}
+header {
+  overflow: hidden;
+  background: #ffe1b9;
+}
+h2 {
+  overflow: hidden;
+  background: #f6cd90;
   text-align: center;
 }
 .quote-container {
@@ -52,8 +61,8 @@ h2{
   padding: 20px;
   font-family: Courgette;
   font-size: 20px;
-  box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
-  background:#efe9cc;
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+  background: #efe9cc;
 }
 
 .note .author {
@@ -72,14 +81,19 @@ h2{
   z-index: 1;
 }
 .pin:after {
-  background-color: #A31;
-  background-image: radial-gradient(25% 25%, circle, hsla(0,0%,100%,.3), hsla(0,0%,0%,.3));
+  background-color: #a31;
+  background-image: radial-gradient(
+    25% 25%,
+    circle,
+    hsla(0, 0%, 100%, 0.3),
+    hsla(0, 0%, 0%, 0.3)
+  );
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
-              inset 3px 3px 3px hsla(0,0%,100%,.2),
-              inset -3px -3px 3px hsla(0,0%,0%,.2),
-              23px 20px 3px hsla(0,0%,0%,.15);
-  content: '';
+  box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.1),
+    inset 3px 3px 3px hsla(0, 0%, 100%, 0.2),
+    inset -3px -3px 3px hsla(0, 0%, 0%, 0.2),
+    23px 20px 3px hsla(0, 0%, 0%, 0.15);
+  content: "";
   height: 12px;
   left: -5px;
   position: absolute;
@@ -87,9 +101,9 @@ h2{
   width: 12px;
 }
 .pin:before {
-  background-color: hsla(0,0%,0%,0.1);
-  box-shadow: 0 0 .25em hsla(0,0%,0%,.1);
-  content: '';
+  background-color: hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 0 0.25em hsla(0, 0%, 0%, 0.1);
+  content: "";
 
   height: 24px;
   width: 2px;
@@ -109,11 +123,11 @@ h2{
   -ms-transform-origin: 50% 100%;
   -o-transform-origin: 50% 100%;
 }
-.wrapper{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-  overflow:hidden;
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
 }
 </style>
 <script>

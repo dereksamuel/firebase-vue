@@ -1,8 +1,7 @@
-<template>
-  <div style="min-width: 100vw; min-height: 100vh;">
-    <Menu />
-    <router-view />
-  </div>
+<template lang="pug">
+div
+  Menu
+  router-view
 </template>
 
 <script>

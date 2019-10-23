@@ -3,11 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lobster', cursive;
 }
 
 body {
-    font-family: 'Lobster', cursive;
-    background: #efe9cc;
-    width: 100vw;
-    height: 100vh;
+    overflow-x: hidden;
+    background: #ffffff;
 }
