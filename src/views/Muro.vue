@@ -29,12 +29,12 @@
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 
 .logo {
-  font-size: 1.2em;
+  font-size: 1em;
   padding-left: 10px;
 }
 .areaname {
   font-size: 1.5em;
-  padding-left: 20px;
+  padding-left:42%;
 }
 body {
   background-image: url("/wall.png");

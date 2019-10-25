@@ -32,7 +32,6 @@
     </div>
   </main>
 </template>
-
 <script>
 import thumbs from "../assets/thumbs.png";
 
