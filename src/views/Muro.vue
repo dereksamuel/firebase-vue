@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import wallImg from "./wall.png";
+import wallImg from "@/assets/wall.png";
 
 export default {
   name: "wall",
