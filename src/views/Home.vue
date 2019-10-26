@@ -6,7 +6,7 @@ div
 
 <script>
 import Menu from "./components/Menu";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   name: "home",
