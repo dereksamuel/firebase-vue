@@ -1,28 +1,28 @@
 <template>
-<div>
-  <header>
-    <span class="logo">
-      Course Diary
-    </span>
-    <span class="areaname">
-      MURO
-    </span>
-  </header>
-  <div class="row">
-    <div class="col-12">
-      <div class="quote-container">
-        <i class="pin"></i>
-        <blockquote class="note yellow">
-          Mensaje
-          <hr />
-          Cuerpo de este
-          <hr />
-          <cite class="author">El autor del escrito</cite>
-        </blockquote>
+  <div>
+    <header>
+      <span class="logo">
+        Course Diary
+      </span>
+      <span class="areaname">
+        MURO
+      </span>
+    </header>
+    <div class="row">
+      <div class="col-12">
+        <div class="quote-container">
+          <i class="pin"></i>
+          <blockquote class="note yellow">
+            Mensaje
+            <hr />
+            Cuerpo de este
+            <hr />
+            <cite class="author">El autor del escrito</cite>
+          </blockquote>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 <style scoped>
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
@@ -34,7 +34,7 @@
 }
 .areaname {
   font-size: 1.5em;
-  padding-left:42%;
+  padding-left: 42%;
 }
 body {
   background-image: url("/wall.png");

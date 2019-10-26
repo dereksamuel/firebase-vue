@@ -40,10 +40,11 @@
           to="/creditos"
           class="menu-item fas fa-book-reader"
         ></router-link>
-        <router-link
-          to="/login"
+        <a
+          href="javascript:void(0)"
+          @click="logoutEv"
           class="menu-item fas fa-sign-out-alt"
-        ></router-link>
+        ></a>
       </menu>
     </div>
   </div>
@@ -66,6 +67,9 @@ export default {
     changeRight() {
       this.showRightMenu = !this.showRightMenu;
       if (this.showRightMenu) this.showLeftMenu = false;
+    },
+    logoutEv() {
+      this.$store.dispatch("logout");
     }
   }
 };
