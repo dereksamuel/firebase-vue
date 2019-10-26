@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wall" :style="styleBack">
     <header>
       <span class="logo">
         Course Diary
@@ -24,6 +24,24 @@
     </div>
   </div>
 </template>
+
+<script>
+import wallImg from "./wall.png";
+
+export default {
+  name: "wall",
+
+  data: () => ({
+    wallImg: wallImg,
+    styleBack: {}
+  }),
+
+  created() {
+    this.styleBack = { 'background-image': 'url(' + this.wallImg +')'}
+  }
+}
+</script>
+
 <style scoped>
 @import url(http://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
@@ -36,8 +54,10 @@
   font-size: 1.5em;
   padding-left: 42%;
 }
-body {
-  background-image: url("/wall.png");
+.wall {
+  height: 100vh;
+  width: 100vw;
+  background-repeat: repeat;
 }
 header {
   overflow: hidden;
@@ -130,8 +150,3 @@ h2 {
   overflow: hidden;
 }
 </style>
-<script>
-export default {
-  name: "muro"
-};
-</script>
