@@ -1,5 +1,5 @@
 <template>
-  <div>
+ <div class="silla" :style="styleBack" >
     <section class="form-wrap">
       <form action="" class="form_contact">
         <h2>ENVIAR MENSAJE</h2>
@@ -28,7 +28,7 @@
         </div>
       </form>
     </section>
-  </div>
+     </div>
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
@@ -46,7 +46,7 @@
   overflow: hidden;
   margin-top: 100px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  background: #422f5877;
+  background: #a785bed8;
 }
 .contact_info::before {
   content: "";
@@ -117,10 +117,29 @@ form.form_contact .user_info {
 form.form_contact input,
 form.form_contact textarea {
   width: 100%;
+  max-width:1200px;
+}
+.silla {
+  height: 100vh ;
+  width: 100% ;
+  background-repeat: no-repeat;
+  margin:none;
+  top:none;
+  padding:none;
 }
 </style>
 <script>
+import sillaImg from "@/assets/silla.jpg";
 export default {
-  name: "mensaje_nuevo"
-};
+  name: "silla",
+ 
+  data: () => ({
+    sillaImg: sillaImg,
+    styleBack: {}
+  }),
+
+  created() {
+    this.styleBack = { 'background-image': 'url(' + this.sillaImg +')'}
+  }
+}
 </script>
