@@ -1,46 +1,51 @@
 <template>
   <div>
     <header>
-      <font size="3">
+      <span class="logo">
         Course Diary
-      </font>
-    </header>
-    <h2>
-      <font size="6">
+      </span>
+      <span class="areaname">
         Historial
-      </font>
-    </h2>
-    <h3>
-      <font size="4">
-        Aquí van los mensajes almacenados por el programa
-        <hr />
-        Lo anterior fue un hr
-        <hr />
-      </font>
-    </h3>
+      </span>
+    </header>
+    <section class="form-wrap">
+      <form action="" class="form_contact">
+        <div>
+          Hola Derek, estoy más vivo que muerto :)
+        </div>
+      </form>
+    </section>
   </div>
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
+
+.logo {
+  font-size: 0.8em;
+  padding-left: 10px;
+}
+.areaname {
+  font-size: 1.3em;
+  padding-left: 41%;
+}
 header {
-  width: 100%;
+  width: 100% auto;
   overflow: hidden;
-  background: #ffae40;
+  background: #ffe1b9;
 }
-h2 {
-  width: 100%;
+.form-wrap {
+  width: 70vw;
+  height: auto;
+  max-height: 1000px;
+  margin: 50px auto;
+  display: flex;
   overflow: hidden;
-  background: #f6cd90;
-  text-align: center;
-}
-h3 {
-  margin-top: 50px;
-  margin-right: 50px;
-  margin-left: 50px;
-  height: 320px;
-  font-family: Courgette;
-  position: relative;
+  margin-top: 1px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   background: #cdf0f4;
+}
+.form-wrap div {
+  font-family: Bree Serif;
 }
 </style>
 <script>

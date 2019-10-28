@@ -37,9 +37,9 @@ export default {
   }),
 
   created() {
-    this.styleBack = { 'background-image': 'url(' + this.wallImg +')'}
+    this.styleBack = { "background-image": "url(" + this.wallImg + ")" };
   }
-}
+};
 </script>
 
 <style scoped>
@@ -47,11 +47,11 @@ export default {
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 
 .logo {
-  font-size: 1em;
+  font-size: 0.8em;
   padding-left: 10px;
 }
 .areaname {
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding-left: 42%;
 }
 .wall {

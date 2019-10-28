@@ -1,5 +1,5 @@
 <template>
- <div class="silla" :style="styleBack" >
+  <div>
     <section class="form-wrap">
       <form action="" class="form_contact">
         <h2>ENVIAR MENSAJE</h2>
@@ -21,14 +21,16 @@
             placeholder="Escribe tu mensaje"
             background-color="crimson"
           ></textarea>
-
           <p>
-            <span class="fas fa-paper-plane"></span><i class="fas fa-link"></i>
+            <span class="fas fa-paper-plane"></span>
           </p>
+          <div>
+            <i class="fas fa-link"></i>
+          </div>
         </div>
       </form>
     </section>
-     </div>
+  </div>
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
@@ -96,6 +98,23 @@
 }
 .user_info p {
   text-align: center;
+  margin-top: 20px;
+  margin-left: 41%;
+  border-radius: 50%;
+  width: 28px;
+  border: 3px solid rgba(22, 19, 19, 0);
+  height: 28px;
+  background: paleturquoise;
+}
+.user_info div {
+  text-align: center;
+  margin-top: -26.58px;
+  margin-left: 55%;
+  border-radius: 50%;
+  width: 28px;
+  border: 3px solid rgb(22, 19, 19, 0);
+  height: 28px;
+  background: pink;
 }
 form.form_contact {
   width: 100%;
@@ -117,29 +136,10 @@ form.form_contact .user_info {
 form.form_contact input,
 form.form_contact textarea {
   width: 100%;
-  max-width:1200px;
-}
-.silla {
-  height: 100vh ;
-  width: 100% ;
-  background-repeat: no-repeat;
-  margin:none;
-  top:none;
-  padding:none;
 }
 </style>
 <script>
-import sillaImg from "@/assets/silla.jpg";
 export default {
-  name: "silla",
- 
-  data: () => ({
-    sillaImg: sillaImg,
-    styleBack: {}
-  }),
-
-  created() {
-    this.styleBack = { 'background-image': 'url(' + this.sillaImg +')'}
-  }
-}
+  name: "silla"
+};
 </script>

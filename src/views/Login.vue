@@ -1,38 +1,44 @@
 <template>
-  <main class="login">
-    <h1 class="titulo center">Course Diary</h1>
-    <div class="center like-btn">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="user-field">@</span>
+  <div>
+    <transition name="fade" mode="out-in">
+      <div class="backlogin firstBack" v-if="back"></div>
+    </transition>
+    <div class="backlogin secondback"></div>
+    <main class="login">
+      <h1 class="titulo center">Course Diary</h1>
+      <div class="center like-btn">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="user-field">@</span>
+          </div>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Escribe un usuario"
+            aria-label="Username"
+            aria-describedby="user-field"
+            v-model="email"
+          />
         </div>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Escribe un usuario"
-          aria-label="Username"
-          aria-describedby="user-field"
-          v-model="email"
-        />
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="password-field">***</span>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="password-field">***</span>
+          </div>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Escribe una contraseña"
+            aria-label="Username"
+            aria-describedby="password-field"
+            v-model="password"
+          />
         </div>
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Escribe una contraseña"
-          aria-label="Username"
-          aria-describedby="password-field"
-          v-model="password"
-        />
+        <div title="Login" @click="loginEv" style="cursor: pointer;">
+          <img :src="thumbs" width="70" alt="Login" />
+        </div>
       </div>
-      <div title="Login" @click="loginEv" style="cursor: pointer;">
-        <img :src="thumbs" width="70" alt="Login" />
-      </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -45,7 +51,8 @@ export default {
   data: () => ({
     thumbs: thumbs,
     email: "",
-    password: ""
+    password: "",
+    back: false
   }),
 
   watch: {
@@ -60,6 +67,7 @@ export default {
 
   created() {
     if (this.userLoged) this.$router.push("/muro");
+    setInterval(() => (this.back = !this.back), 5000);
   },
 
   methods: {
@@ -74,6 +82,7 @@ export default {
 
 <style scoped>
 .login {
+  z-index: 2;
   background: #f6cd90;
   /* height: 300px; */
   padding: 10px;
@@ -82,6 +91,26 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.backlogin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.firstBack {
+  z-index: 1;
+  background-image: url("../assets/triste.jpg");
+}
+
+.secondback {
+  background-image: url("../assets/silla.jpg");
 }
 
 .like-btn {
