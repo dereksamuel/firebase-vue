@@ -1,5 +1,5 @@
 <template>
- <div class="silla" :style="styleBack" >
+ <div>
     <section class="form-wrap">
       <form action="" class="form_contact">
         <h2>ENVIAR MENSAJE</h2>
@@ -21,10 +21,12 @@
             placeholder="Escribe tu mensaje"
             background-color="crimson"
           ></textarea>
-
           <p>
-            <span class="fas fa-paper-plane"></span><i class="fas fa-link"></i>
+           <span class="fas fa-paper-plane">ENVIAR MENSAJE</span>
           </p>
+          <div>
+           <i class="fas fa-link">VÍNCULAR</i>
+          </div>
         </div>
       </form>
     </section>
@@ -46,7 +48,7 @@
   overflow: hidden;
   margin-top: 100px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  background: #a785bed8;
+  background: #a785bea8;
 }
 .contact_info::before {
   content: "";
@@ -95,7 +97,20 @@
   justify-content: center;
 }
 .user_info p {
-  text-align: center;
+  background-color:rgb(204, 248, 8);
+  text-align:center;
+  margin-top:20px; 
+  margin-left: 50%;
+  display: block;
+  border-radius: 360vh;
+}
+.user_info div {
+  background-color:rgb(21, 228, 193);
+  text-align:center;
+  margin-left:50%;
+  display:block;
+  margin-top:10px;
+  border-radius: 470vw;
 }
 form.form_contact {
   width: 100%;
@@ -117,29 +132,10 @@ form.form_contact .user_info {
 form.form_contact input,
 form.form_contact textarea {
   width: 100%;
-  max-width:1200px;
-}
-.silla {
-  height: 100vh ;
-  width: 100% ;
-  background-repeat: no-repeat;
-  margin:none;
-  top:none;
-  padding:none;
 }
 </style>
 <script>
-import sillaImg from "@/assets/silla.jpg";
 export default {
-  name: "silla",
- 
-  data: () => ({
-    sillaImg: sillaImg,
-    styleBack: {}
-  }),
-
-  created() {
-    this.styleBack = { 'background-image': 'url(' + this.sillaImg +')'}
-  }
+  name: "container",
 }
 </script>
