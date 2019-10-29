@@ -1,4 +1,5 @@
 <template>
+
  <div>
     <section class="form-wrap">
       <form action="" class="form_contact">
@@ -22,15 +23,15 @@
             background-color="crimson"
           ></textarea>
           <p>
-           <span class="fas fa-paper-plane">ENVIAR MENSAJE</span>
+            <span class="fas fa-paper-plane"></span>
           </p>
           <div>
-           <i class="fas fa-link">VÍNCULAR</i>
+            <i class="fas fa-link"></i>
           </div>
         </div>
       </form>
     </section>
-     </div>
+  </div>
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
@@ -97,20 +98,24 @@
   justify-content: center;
 }
 .user_info p {
-  background-color:rgb(204, 248, 8);
-  text-align:center;
-  margin-top:20px; 
-  margin-left: 50%;
-  display: block;
-  border-radius: 360vh;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 41%;
+  border-radius: 50%;
+  width: 28px;
+  border: 3px solid rgba(22, 19, 19, 0);
+  height: 28px;
+  background: paleturquoise;
 }
 .user_info div {
-  background-color:rgb(21, 228, 193);
-  text-align:center;
-  margin-left:50%;
-  display:block;
-  margin-top:10px;
-  border-radius: 470vw;
+  text-align: center;
+  margin-top: -26.58px;
+  margin-left: 55%;
+  border-radius: 50%;
+  width: 28px;
+  border: 3px solid rgb(22, 19, 19, 0);
+  height: 28px;
+  background: pink;
 }
 form.form_contact {
   width: 100%;
@@ -136,6 +141,6 @@ form.form_contact textarea {
 </style>
 <script>
 export default {
-  name: "container",
-}
+  name: "silla"
+};
 </script>
