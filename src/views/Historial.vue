@@ -52,4 +52,5 @@ header {
 export default {
   name: "historial"
 };
+
 </script>

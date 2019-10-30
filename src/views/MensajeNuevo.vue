@@ -1,6 +1,5 @@
 <template>
-
- <div>
+ <div class="wall" :style="styleBack">
     <section class="form-wrap">
       <form action="" class="form_contact">
         <h2>ENVIAR MENSAJE</h2>
@@ -137,10 +136,27 @@ form.form_contact .user_info {
 form.form_contact input,
 form.form_contact textarea {
   width: 100%;
+  max-height:100vh;
+}
+.triste{
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
 }
 </style>
 <script>
+import tristeImg from "@/assets/triste.jpg";
+
 export default {
-  name: "silla"
+  name: "triste",
+
+  data: () => ({
+   tristeImg: tristeImg,
+    styleBack: {}
+  }),
+
+  created() {
+    this.styleBack = { "background-image": "url(" + this.tristeImg + ")" };
+  }
 };
 </script>

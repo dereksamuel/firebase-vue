@@ -51,15 +51,17 @@
           </h6>
           <hr />
           <h6 class="pero">
-            <ul>
-              <li class="wasa"></li>
-              <li>Facebook</li>
-              <li>Gmail</li>
-            </ul>
           </h6>
+          <div id="app" class="wasap">
+            {{ mensaje }}
+            <a href="https://www.whatsapp.com/?lang=es"><img v-bind="d" src="../assets/wasap.png" /></a>
+          </div>
+           <div id="app" class="book">
+            {{ mensaje }}
+            <a href="https://www.facebook.com/?stype=lo&jlou=AffiZtTcGYm72Qlo-evK-uShvJURAZA-FOoUnZu__9awaaJIzY0ZOGbnN63O4BTWv1BzPOHZp_z1Deq2S6GFF-LrwilLMYOhpDoDOSQKGXbTFA&smuh=34877&lh=Ac8sKhvSRFslsw9F"><img v-bind="d" src="../assets/face.png" /></a>
+          </div>
         </div>
       </form>
-    <div class="hola"></div>
     </section>
   </div>
 </template>
@@ -81,7 +83,6 @@ header {
 }
 .form-wrap {
   width: 70vw;
-  max-height: 1000px;
   margin: auto;
   display: flex;
   overflow: hidden;
@@ -145,22 +146,19 @@ h6 {
   margin-right: 20px;
   margin-top: 20px;
 }
-.pero .wasa{
-   position: absolute;
-  top: 0;
-  left: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+.wasap img{
+ margin-top:5%;
+ margin-left:35%;
+ border-radius:50%;
+ height:auto;
+ width:5vw;
 }
-.hola{ 
-  z-index: 1;
-  background-image: url("../assets/wasap.png");
-  margin-left:40px;
-  margin-right:40px;
-  background-repeat: no-repeat;
+.book img{
+ margin-top:-9.7%;
+ border-radius:50%;
+ margin-left:60%;
+ height:auto;
+ width:5vw;
 }
 </style>
 <script>
