@@ -6,16 +6,16 @@
         <div class="user_info">
           <label for="names">Para:</label>
           <Multiselect
-          style="width: 150px;"
+          style="width: 50vw;"
             v-model="form.usuarios"
-            deselect-label="Can't remove this value"
+            deselect-label="Quitar"
             track-by="uid"
-            label="names"
+            label="email"
             placeholder="Seleccione mínimo uno"
             :multiple="true"
             :options="usuariosPuros"
-            :searchable="false"
-            :allow-empty="false">
+            :searchable="true"
+            :allow-empty="true">
             <template slot="singleLabel" slot-scope="{ option }">
               <span>{{ option.email }}</span>
             </template>            
@@ -121,11 +121,11 @@
 .user_info div {
   text-align: center;
   margin-top: -26.58px;
-  margin-left: 55%;
+  margin-left: 10%;
   border-radius: 50%;
   width: 28px;
   border: 3px solid rgb(22, 19, 19, 0);
-  height: 28px;
+  /* height: 28px; */
   background: pink;
 }
 form.form_contact {
@@ -161,6 +161,7 @@ form.form_contact textarea {
 import tristeImg from "@/assets/triste.jpg";
 import Multiselect from 'vue-multiselect'
 import { mapActions, mapState } from 'vuex';
+import _get from 'lodash/get'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 export default {
@@ -185,10 +186,12 @@ export default {
 
   computed: {
     ...mapState([
-      "usuarios"
+      "usuarios",
+      "userLoged"
     ]),
     paraEnviar() {
       const envio = this.form
+      envio.creador = `user_${_get(this.userLoged, 'uid')}`
       if (envio.usuarios.length) {
         const base = { recibido: null, leido: null }
         const usrs = {}
@@ -201,8 +204,8 @@ export default {
       return envio
     },
     usuariosPuros() {
-      return this.usuarios.map(usr => {
-        const toReturn = { uid: usr.uid, ...usr.data.user, nombre: usr.data.name }
+      return this.usuarios.filter(usr => usr).map(usr => {
+        const toReturn = { ...usr.data.user, uid: usr.uid, nombre: usr.data.nombre }
         return toReturn;
       })
     }
@@ -218,7 +221,7 @@ export default {
     ]),
 
     enviarMensaje() {
-      return this.crearMensaje(this.form)
+      if (this.userLoged) return this.crearMensaje(this.paraEnviar).then(() => this.$router.push('/muro'))
     }
   }
 };

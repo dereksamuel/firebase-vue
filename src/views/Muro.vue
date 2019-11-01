@@ -9,18 +9,20 @@
       </span>
     </header>
     <div class="row">
-      <div class="col-12">
-        <div class="quote-container">
-          <i class="pin"></i>
-          <blockquote class="note yellow">
-            Mensaje
-            <hr />
-            Cuerpo de este
-            <hr />
-            <cite class="author">El autor del escrito</cite>
-          </blockquote>
+      <template v-if="mensajes.length">
+        <div class="col-lg-4" v-for="mensaje in mensajes" :key="mensaje.uid">
+          <div class="quote-container">
+            <i class="pin"></i>
+            <blockquote class="note yellow">
+              {{ mensaje.data.asunto }}
+              <hr />
+              {{ mensaje.data.mensaje }}
+              <hr />
+              <cite class="author">{{ buscarAutor(mensaje.data.creador) }}</cite>
+            </blockquote>
+          </div>
         </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
@@ -28,6 +30,7 @@
 <script>
 import wallImg from "@/assets/wall.png";
 import { mapState } from "vuex";
+import _get from 'lodash/get'
 
 export default {
   name: "wall",
@@ -43,6 +46,12 @@ export default {
 
   created() {
     this.styleBack = { "background-image": "url(" + this.wallImg + ")" };
+  },
+
+  methods: {
+    buscarAutor(uid) {
+      return _get(this.usuarios.find(usr => usr.uid === uid), 'data.user.email') || 'Sin nombre'
+    }
   }
 };
 </script>
