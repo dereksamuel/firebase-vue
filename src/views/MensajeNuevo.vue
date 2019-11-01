@@ -1,18 +1,28 @@
 <template>
   <div class="wall" :style="styleBack">
     <section class="form-wrap">
-      <form action="" class="form_contact">
+      <form class="form_contact" @submit.prevent="enviarMensaje">
         <h2>ENVIAR MENSAJE</h2>
         <div class="user_info">
           <label for="names">Para:</label>
-          <input
-            type="text"
-            id="names"
-            placeholder="Cursos, grados o estudiantes"
-          />
+          <Multiselect
+          style="width: 150px;"
+            v-model="form.usuarios"
+            deselect-label="Can't remove this value"
+            track-by="uid"
+            label="names"
+            placeholder="Seleccione mínimo uno"
+            :multiple="true"
+            :options="usuariosPuros"
+            :searchable="false"
+            :allow-empty="false">
+            <template slot="singleLabel" slot-scope="{ option }">
+              <span>{{ option.email }}</span>
+            </template>            
+          </Multiselect>
 
-          <label for="team">Asunto:</label>
-          <input type="text" id="names" placeholder="Temática" />
+          <label for="asunto">Asunto:</label>
+          <input type="text" id="asunto" placeholder="Temática" v-model="form.asunto"/>
 
           <label for="mensaje">Mensaje:</label>
           <textarea
@@ -20,9 +30,10 @@
             id="mensaje"
             placeholder="Escribe tu mensaje"
             background-color="crimson"
+            v-model="form.mensaje"
           ></textarea>
           <p>
-            <span class="fas fa-paper-plane"></span>
+            <span class="fas fa-paper-plane" @click="enviarMensaje"></span>
           </p>
           <div>
             <i class="fas fa-link"></i>
@@ -32,6 +43,7 @@
     </section>
   </div>
 </template>
+
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 * {
@@ -144,19 +156,70 @@ form.form_contact textarea {
   background-repeat: no-repeat;
 }
 </style>
+
 <script>
 import tristeImg from "@/assets/triste.jpg";
+import Multiselect from 'vue-multiselect'
+import { mapActions, mapState } from 'vuex';
+import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 export default {
-  name: "triste",
+  name: "nuevomensaje",
+
+  components: {
+    Multiselect
+  },
 
   data: () => ({
     tristeImg: tristeImg,
-    styleBack: {}
+    styleBack: {},
+    form: {
+      usuarios: [],
+      asunto: '',
+      mensaje: '',
+      estado: {},
+      creador: '',
+      fecha: Date().toString()
+    }
   }),
+
+  computed: {
+    ...mapState([
+      "usuarios"
+    ]),
+    paraEnviar() {
+      const envio = this.form
+      if (envio.usuarios.length) {
+        const base = { recibido: null, leido: null }
+        const usrs = {}
+        envio.usuarios = envio.usuarios.map(us => us.uid)
+        envio.usuarios.forEach(us => {
+          usrs[us] = base
+        })
+        envio.estado = usrs
+      }
+      return envio
+    },
+    usuariosPuros() {
+      return this.usuarios.map(usr => {
+        const toReturn = { uid: usr.uid, ...usr.data.user, nombre: usr.data.name }
+        return toReturn;
+      })
+    }
+  },
 
   created() {
     this.styleBack = { "background-image": "url(" + this.tristeImg + ")" };
+  },
+
+  methods: {
+    ...mapActions([
+      "crearMensaje"
+    ]),
+
+    enviarMensaje() {
+      return this.crearMensaje(this.form)
+    }
   }
 };
 </script>

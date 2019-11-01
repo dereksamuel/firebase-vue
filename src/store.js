@@ -11,7 +11,9 @@ export default new Vuex.Store({
     started: false,
     userLoged: null,
     mensajes: [],
-    usuarios: []
+    usuarios: [],
+    suscriptorMensajes: null,
+    suscriptorUsuarios: null
   },
   mutations: {
     setState: (state, pay) => {
@@ -21,7 +23,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    startProcess({ commit, state }) {
+    startProcess({ commit, state, dispatch }) {
       if (state.started) return;
       commit("setState", { key: "started", value: true });
       firebase.auth().onAuthStateChanged(user => {
@@ -30,8 +32,26 @@ export default new Vuex.Store({
             key: "userLoged",
             value: _pick(user, ["displayName", "email", "emailVerified", "uid"])
           });
+          if (!state.suscriptorMensajes) dispatch("obtenerMensajesParaMi");
+          if (!state.suscriptorUsuarios) dispatch("obtenerPosiblesUsuarios");
         } else {
           commit("setState", { key: "userLoged", value: null });
+          if (
+            state.suscriptorMensajes &&
+            typeof state.suscriptorMensajes === "function"
+          ) {
+            state.suscriptorMensajes();
+            commit("setState", { key: "suscriptorMensajes", value: null });
+          }
+          if (
+            state.suscriptorUsuarios &&
+            typeof state.suscriptorUsuarios === "function"
+          ) {
+            state.suscriptorUsuarios();
+            commit("setState", { key: "suscriptorUsuarios", value: null });
+          }
+          commit("setState", { key: "mensajes", value: [] });
+          commit("setState", { key: "usuarios", value: [] });
         }
       });
     },
@@ -46,7 +66,7 @@ export default new Vuex.Store({
     },
     obtenerMensajesParaMi({ commit, state }) {
       if (!state.userLoged) return;
-      return firebase
+      const listener = firebase
         .firestore()
         .collection("mensajes")
         .where("usuarios", "array-contains", `user_${state.userLoged.uid}`)
@@ -57,6 +77,7 @@ export default new Vuex.Store({
           });
           commit("setState", { key: "mensajes", value: results });
         });
+      commit("setState", { key: "suscriptorMensajes", value: listener });
     },
     crearMensaje({ state }, payload) {
       if (!state.userLoged) return;
@@ -75,7 +96,7 @@ export default new Vuex.Store({
     },
     obtenerPosiblesUsuarios({ commit, state }) {
       if (!state.userLoged) return;
-      return firebase
+      const listener = firebase
         .firestore()
         .collection("usuario")
         .onSnapshot(function(querySnapshot) {
@@ -86,6 +107,7 @@ export default new Vuex.Store({
           });
           commit("setState", { key: "usuarios", value: results });
         });
+      commit("setState", { key: "suscriptorUsuarios", value: listener });
     }
   }
 });

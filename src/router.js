@@ -13,7 +13,6 @@ import Agrupaciones from "./views/Configuracion/Agrupaciones";
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
