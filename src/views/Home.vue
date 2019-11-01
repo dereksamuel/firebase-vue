@@ -18,8 +18,8 @@ export default {
   created() {
     if (!this.userLoged) this.$router.push("/login");
     else {
-      this.obtenerMensajesParaMi()
-      this.obtenerPosiblesUsuarios()
+      this.obtenerMensajesParaMi();
+      this.obtenerPosiblesUsuarios();
     }
   },
 
@@ -27,17 +27,14 @@ export default {
     userLoged(val) {
       if (!val) this.$router.push("/login");
       else {
-        this.obtenerMensajesParaMi()
-        this.obtenerPosiblesUsuarios()
+        this.obtenerMensajesParaMi();
+        this.obtenerPosiblesUsuarios();
       }
     }
   },
 
   methods: {
-    ...mapActions([
-      "obtenerMensajesParaMi",
-      "obtenerPosiblesUsuarios"
-    ])
+    ...mapActions(["obtenerMensajesParaMi", "obtenerPosiblesUsuarios"])
   },
 
   computed: {

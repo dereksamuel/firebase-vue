@@ -74,7 +74,6 @@ export default new Vuex.Store({
         .update(payload.data);
     },
     obtenerPosiblesUsuarios({ commit, state }) {
-      console.log("exec", state.userLoged)
       if (!state.userLoged) return;
       return firebase
         .firestore()
@@ -82,7 +81,6 @@ export default new Vuex.Store({
         .onSnapshot(function(querySnapshot) {
           const results = [];
           querySnapshot.forEach(function(doc) {
-            console.log(doc.id , `user_${state.userLoged.uid}`)
             if (doc.id !== `user_${state.userLoged.uid}`)
               results.push({ uid: doc.id, data: doc.data() });
           });
