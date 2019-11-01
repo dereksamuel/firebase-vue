@@ -2,6 +2,7 @@ import * as fb from "firebase/app";
 
 // Add the Firebase services that you want to use
 import "firebase/auth";
+import "firebase/firestore";
 
 var firebaseConfig = {
   apiKey: "AIzaSyDli729BeCW3c0319GqcR-sSlpveXPcJGA",

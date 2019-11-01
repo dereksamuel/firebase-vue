@@ -1,5 +1,5 @@
 <template>
- <div class="wall" :style="styleBack">
+  <div class="wall" :style="styleBack">
     <section class="form-wrap">
       <form action="" class="form_contact">
         <h2>ENVIAR MENSAJE</h2>
@@ -136,9 +136,9 @@ form.form_contact .user_info {
 form.form_contact input,
 form.form_contact textarea {
   width: 100%;
-  max-height:100vh;
+  max-height: 100vh;
 }
-.triste{
+.triste {
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
@@ -151,7 +151,7 @@ export default {
   name: "triste",
 
   data: () => ({
-   tristeImg: tristeImg,
+    tristeImg: tristeImg,
     styleBack: {}
   }),
 

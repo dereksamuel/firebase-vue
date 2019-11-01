@@ -1,6 +1,6 @@
 <template>
- <div>
-  <header>
+  <div>
+    <header>
       <span class="logo">
         Course Diary
       </span>
@@ -14,25 +14,25 @@
       </section>
       <form action="" class="form_contact">
         <div class="panel">
-        <div class="aj">
-          AJUSTES DE USUARIOS
+          <div class="aj">
+            AJUSTES DE USUARIOS
+          </div>
+          <div class="aj">
+            Aquí puedes modificar tu estatus como usuario junto con el nombre de
+            tal al hacer click en este título o en la imágen
+          </div>
         </div>
-        <div class="aj">
-          Aquí puedes modificar tu estatus como usuario 
-          junto con el nombre de tal al hacer click en este título o en la imágen
-        </div>
-        </div>
-        <br>
+        <br />
       </form>
-    <hr>
+      <hr />
     </section>
- </div>
+  </div>
 </template>
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu&display=swap);
 
- .logo {
+.logo {
   font-size: 0.8em;
   padding-left: 10px;
 }
@@ -45,17 +45,17 @@ header {
   overflow: hidden;
   background: #ffe1b9;
 }
-.form-wrap .form_contact .panel{
- width:auto;
- margin-left:1.5vw;
- background-color: aquamarine;
- margin-right:1.5vw;
+.form-wrap .form_contact .panel {
+  width: auto;
+  margin-left: 1.5vw;
+  background-color: aquamarine;
+  margin-right: 1.5vw;
 }
-.form-wrap .form_contact .aj{
-  margin-top:2.6vh;
- margin-left:2vw;
- font-family:Ubuntu;
- margin-right:2vw;
+.form-wrap .form_contact .aj {
+  margin-top: 2.6vh;
+  margin-left: 2vw;
+  font-family: Ubuntu;
+  margin-right: 2vw;
 }
 .form-wrap {
   width: 70vw;
@@ -69,22 +69,22 @@ header {
   background: #cdf0f4;
   margin-bottom: 35px;
 }
-.form-wrap span{
-  margin-left:5vw;
-  height:3vh;
-  font-size:30px;
+.form-wrap span {
+  margin-left: 5vw;
+  height: 3vh;
+  font-size: 30px;
 }
-.form-wrap .from-warp span{
-  margin-top:4vh;
-  margin-left:2vw;
-  border-radius:50%;
-  border-style:solid;
+.form-wrap .from-warp span {
+  margin-top: 4vh;
+  margin-left: 2vw;
+  border-radius: 50%;
+  border-style: solid;
   border-color: rgb(0, 0, 0);
-  height:5vh;
-  background-color:rgb(255, 255, 255);
+  height: 5vh;
+  background-color: rgb(255, 255, 255);
 }
 
-body{
+body {
   background-color: aliceblue;
 }
 </style>

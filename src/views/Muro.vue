@@ -27,6 +27,7 @@
 
 <script>
 import wallImg from "@/assets/wall.png";
+import { mapState } from 'vuex'
 
 export default {
   name: "wall",
@@ -36,8 +37,15 @@ export default {
     styleBack: {}
   }),
 
+  computed: {
+    ...mapState([
+      "usuarios",
+      "mensajes"
+    ])
+  },
+
   created() {
-    this.styleBack = { "background-image": "url(" + this.wallImg + ")" };
+    this.styleBack = { "background-image": "url(" + this.wallImg + ")" }
   }
 };
 </script>
