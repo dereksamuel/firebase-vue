@@ -6,7 +6,7 @@
         <div class="user_info">
           <label for="names">Para:</label>
           <Multiselect
-          style="width: 50vw;"
+            style="width: 50vw;"
             v-model="form.usuarios"
             deselect-label="Quitar"
             track-by="uid"
@@ -15,14 +15,20 @@
             :multiple="true"
             :options="usuariosPuros"
             :searchable="true"
-            :allow-empty="true">
+            :allow-empty="true"
+          >
             <template slot="singleLabel" slot-scope="{ option }">
               <span>{{ option.email }}</span>
-            </template>            
+            </template>
           </Multiselect>
 
           <label for="asunto">Asunto:</label>
-          <input type="text" id="asunto" placeholder="Temática" v-model="form.asunto"/>
+          <input
+            type="text"
+            id="asunto"
+            placeholder="Temática"
+            v-model="form.asunto"
+          />
 
           <label for="mensaje">Mensaje:</label>
           <textarea
@@ -159,10 +165,10 @@ form.form_contact textarea {
 
 <script>
 import tristeImg from "@/assets/triste.jpg";
-import Multiselect from 'vue-multiselect'
-import { mapActions, mapState } from 'vuex';
-import _get from 'lodash/get'
-import 'vue-multiselect/dist/vue-multiselect.min.css'
+import Multiselect from "vue-multiselect";
+import { mapActions, mapState } from "vuex";
+import _get from "lodash/get";
+import "vue-multiselect/dist/vue-multiselect.min.css";
 
 export default {
   name: "nuevomensaje",
@@ -176,38 +182,41 @@ export default {
     styleBack: {},
     form: {
       usuarios: [],
-      asunto: '',
-      mensaje: '',
+      asunto: "",
+      mensaje: "",
       estado: {},
-      creador: '',
+      creador: "",
       fecha: Date().toString()
     }
   }),
 
   computed: {
-    ...mapState([
-      "usuarios",
-      "userLoged"
-    ]),
+    ...mapState(["usuarios", "userLoged"]),
     paraEnviar() {
-      const envio = this.form
-      envio.creador = `user_${_get(this.userLoged, 'uid')}`
+      const envio = this.form;
+      envio.creador = `user_${_get(this.userLoged, "uid")}`;
       if (envio.usuarios.length) {
-        const base = { recibido: null, leido: null }
-        const usrs = {}
-        envio.usuarios = envio.usuarios.map(us => us.uid)
+        const base = { recibido: null, leido: null };
+        const usrs = {};
+        envio.usuarios = envio.usuarios.map(us => us.uid);
         envio.usuarios.forEach(us => {
-          usrs[us] = base
-        })
-        envio.estado = usrs
+          usrs[us] = base;
+        });
+        envio.estado = usrs;
       }
-      return envio
+      return envio;
     },
     usuariosPuros() {
-      return this.usuarios.filter(usr => usr).map(usr => {
-        const toReturn = { ...usr.data.user, uid: usr.uid, nombre: usr.data.nombre }
-        return toReturn;
-      })
+      return this.usuarios
+        .filter(usr => usr)
+        .map(usr => {
+          const toReturn = {
+            ...usr.data.user,
+            uid: usr.uid,
+            nombre: usr.data.nombre
+          };
+          return toReturn;
+        });
     }
   },
 
@@ -216,12 +225,13 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      "crearMensaje"
-    ]),
+    ...mapActions(["crearMensaje"]),
 
     enviarMensaje() {
-      if (this.userLoged) return this.crearMensaje(this.paraEnviar).then(() => this.$router.push('/muro'))
+      if (this.userLoged)
+        return this.crearMensaje(this.paraEnviar).then(() =>
+          this.$router.push("/muro")
+        );
     }
   }
 };

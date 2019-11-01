@@ -18,7 +18,9 @@
               <hr />
               {{ mensaje.data.mensaje }}
               <hr />
-              <cite class="author">{{ buscarAutor(mensaje.data.creador) }}</cite>
+              <cite class="author">{{
+                buscarAutor(mensaje.data.creador)
+              }}</cite>
             </blockquote>
           </div>
         </div>
@@ -30,7 +32,7 @@
 <script>
 import wallImg from "@/assets/wall.png";
 import { mapState } from "vuex";
-import _get from 'lodash/get'
+import _get from "lodash/get";
 
 export default {
   name: "wall",
@@ -50,7 +52,10 @@ export default {
 
   methods: {
     buscarAutor(uid) {
-      return _get(this.usuarios.find(usr => usr.uid === uid), 'data.user.email') || 'Sin nombre'
+      return (
+        _get(this.usuarios.find(usr => usr.uid === uid), "data.user.email") ||
+        "Sin nombre"
+      );
     }
   }
 };
