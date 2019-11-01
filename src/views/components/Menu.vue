@@ -80,6 +80,7 @@ export default {
   position: fixed;
   bottom: 1em;
   right: 1em;
+  z-index: 100;
 }
 
 .circular-menu .floating-btn {
