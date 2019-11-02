@@ -1,6 +1,6 @@
 <template>
   <div class="wall" :style="styleBack">
-    <header>
+    <header style="height: 30px;">
       <span class="logo">
         Course Diary
       </span>
@@ -8,7 +8,7 @@
         MURO
       </span>
     </header>
-    <div class="row">
+    <div class="row all-height">
       <template v-if="mensajes.length">
         <div class="col-lg-4" v-for="mensaje in mensajes" :key="mensaje.uid">
           <div class="quote-container">
@@ -64,7 +64,9 @@ export default {
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
-
+.all-height{
+  min-height:calc(100vh - 30px);
+}
 .logo {
   font-size: 0.8em;
   padding-left: 10px;
@@ -74,8 +76,8 @@ export default {
   padding-left: 42%;
 }
 .wall {
-  height: 100vh;
-  width: 100vw;
+  height:auto;
+  width: auto;
   background-repeat: repeat;
 }
 header {
@@ -84,6 +86,7 @@ header {
 }
 h2 {
   overflow: hidden;
+    width:auto;
   background: #f6cd90;
   text-align: center;
 }
@@ -95,13 +98,16 @@ h2 {
 .note {
   color: #333;
   position: relative;
-  width: 300px;
+  width: auto;
   margin: 0 auto;
   padding: 20px;
   font-family: Courgette;
   font-size: 20px;
   box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
   background: #efe9cc;
+  overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
 }
 
 .note .author {

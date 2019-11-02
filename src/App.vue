@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-view
+  router-view.container-fluid
 </template>
 
 <script>
