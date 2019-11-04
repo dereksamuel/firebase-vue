@@ -67,6 +67,7 @@
   margin-top: 100px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   background: #a785bea8;
+  color:rgb(255, 255, 255);
 }
 .contact_info::before {
   content: "";
@@ -123,6 +124,7 @@
   border: 3px solid rgba(22, 19, 19, 0);
   height: 28px;
   background: paleturquoise;
+  color:black;
 }
 .user_info div {
   text-align: center;
@@ -133,6 +135,7 @@
   border: 3px solid rgb(22, 19, 19, 0);
   /* height: 28px; */
   background: pink;
+  color:black;
 }
 form.form_contact {
   width: 100%;
