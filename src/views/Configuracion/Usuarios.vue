@@ -26,7 +26,7 @@
             <tr v-for="usuario in usuarios" :key="usuario.uid">
               <td>{{ usuario.data.user.email }}</td>
               <td>{{ usuario.data.tipo }}</td>
-              <td>{{ usuario.data.estado ? "Activo" : "Inactivo"}}</td>
+              <td>{{ usuario.data.estado ? "Activo" : "Inactivo" }}</td>
             </tr>
           </table>
         </span>
@@ -40,11 +40,11 @@
 import { mapState } from "vuex";
 
 export default {
-  name:"tabla",
-   computed: {
+  name: "tabla",
+  computed: {
     ...mapState(["usuarios"])
-   }
-}
+  }
+};
 </script>
 
 <style scoped>
@@ -54,7 +54,7 @@ tr th,
 tr td {
   padding: 5px 10px;
   text-align: center;
-  font-family:Ubuntu;
+  font-family: Ubuntu;
 }
 
 .logo {

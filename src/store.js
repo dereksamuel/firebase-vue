@@ -122,5 +122,11 @@ export default new Vuex.Store({
         });
       commit("setState", { key: "suscriptorUsuarios", value: listener });
     }
+  },
+
+  getters: {
+    mensajesVivos: state => state.mensajes.filter(msj => !msj.data.archivado),
+    mensajesArchivados: state =>
+      state.mensajes.filter(msj => msj.data.archivado)
   }
 });

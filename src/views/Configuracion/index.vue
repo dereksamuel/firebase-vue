@@ -10,7 +10,9 @@
     </header>
     <section class="form-wrap">
       <section class="from-warp">
-        <router-link to="/configuracion/usuarios"><span class="fas fa-users-cog"></span></router-link>
+        <router-link to="/configuracion/usuarios"
+          ><span class="fas fa-users-cog"></span
+        ></router-link>
       </section>
       <form action="" class="form_contact">
         <div class="panel">

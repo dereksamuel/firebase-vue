@@ -9,8 +9,12 @@
       </span>
     </header>
     <div class="row all-height">
-      <template v-if="mensajes.length">
-        <div class="col-lg-4" v-for="mensaje in mensajes" :key="mensaje.uid">
+      <template v-if="mensajesVivos.length">
+        <div
+          class="col-lg-4"
+          v-for="mensaje in mensajesVivos"
+          :key="mensaje.uid"
+        >
           <div class="quote-container">
             <button class="pin" @click="aHistorial(mensaje)"></button>
             <blockquote class="note yellow">
@@ -31,7 +35,7 @@
 
 <script>
 import wallImg from "@/assets/wall.png";
-import { mapState } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 import _get from "lodash/get";
 
 export default {
@@ -43,7 +47,8 @@ export default {
   }),
 
   computed: {
-    ...mapState(["usuarios", "mensajes"])
+    ...mapState(["usuarios"]),
+    ...mapGetters(["mensajesVivos"])
   },
 
   created() {
@@ -51,14 +56,19 @@ export default {
   },
 
   methods: {
+    ...mapActions(["actualizarMensaje"]),
+
     buscarAutor(uid) {
       return (
         _get(this.usuarios.find(usr => usr.uid === uid), "data.user.email") ||
         "Sin nombre"
       );
     },
-    aHistorial(mensaje){
-      //
+    aHistorial(mensaje) {
+      return this.actualizarMensaje({
+        id: mensaje.uid,
+        data: { archivado: true }
+      });
     }
   }
 };
@@ -67,8 +77,8 @@ export default {
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Satisfy);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
-.all-height{
-  min-height:calc(100vh - 30px);
+.all-height {
+  min-height: calc(100vh - 30px);
 }
 .logo {
   font-size: 0.8em;
@@ -79,7 +89,7 @@ export default {
   padding-left: 42%;
 }
 .wall {
-  height:auto;
+  height: auto;
   width: auto;
   background-repeat: repeat;
 }
@@ -89,7 +99,7 @@ header {
 }
 h2 {
   overflow: hidden;
-    width:auto;
+  width: auto;
   background: #f6cd90;
   text-align: center;
 }
@@ -109,8 +119,8 @@ h2 {
   box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
   background: #efe9cc;
   overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 300px;
+  overflow-x: hidden;
+  max-height: 300px;
 }
 
 .note .author {
