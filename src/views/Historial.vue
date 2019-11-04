@@ -1,55 +1,177 @@
 <template>
-  <div>
-    <header>
+  <div class="wall" :style="styleBack">
+    <header style="height: 30px;">
       <span class="logo">
         Course Diary
       </span>
       <span class="areaname">
-        Historial
+       Historial
       </span>
     </header>
-    <section class="form-wrap">
-      <form action="" class="form_contact">
-        <div>
-          Hola Derek, estoy más vivo que muerto :)
+    <div class="row all-height">
+      <template v-if="mensajes.length">
+        <div class="col-lg-4" v-for="mensaje in mensajes" :key="mensaje.uid">
+          <div class="quote-container">
+            <i class="pin"></i>
+            <blockquote class="note yellow">
+              {{ mensaje.data.asunto }}
+              <hr />
+              {{ mensaje.data.mensaje }}
+              <hr />
+              <cite class="author">{{
+                buscarAutor(mensaje.data.creador)
+              }}</cite>
+            </blockquote>
+          </div>
         </div>
-      </form>
-    </section>
+      </template>
+    </div>
   </div>
 </template>
-<style scoped>
-@import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
 
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif|Courgette&display=swap);
+.all-height{
+  min-height:calc(100vh - 30px);
+}
 .logo {
   font-size: 0.8em;
   padding-left: 10px;
 }
 .areaname {
   font-size: 1.3em;
-  padding-left: 41%;
+  padding-left: 42%;
+}
+.wall {
+  height:auto;
+  width: auto;
+  background-repeat: repeat;
 }
 header {
-  width: 100% auto;
   overflow: hidden;
   background: #ffe1b9;
 }
-.form-wrap {
-  width: 70vw;
-  height: auto;
-  max-height: 1000px;
-  margin: 50px auto;
-  display: flex;
+h2 {
   overflow: hidden;
-  margin-top: 1px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  background: #cdf0f4;
+    width:auto;
+  background: #f6cd90;
+  text-align: center;
 }
-.form-wrap div {
-  font-family: Bree Serif;
+.quote-container {
+  margin-top: 35px;
+  position: relative;
+}
+
+.note {
+  color: #333;
+  position: relative;
+  width: auto;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Courgette;
+  font-size: 20px;
+  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+  background: #efe9cc;
+  overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+}
+
+.note .author {
+  display: block;
+  margin: 40px 0 0 0;
+  text-align: right;
+}
+.pin {
+  background-color: #aaa;
+  display: block;
+  height: 32px;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  top: -16px;
+  z-index: 1;
+}
+.pin:after {
+  background-color: #a31;
+  background-image: radial-gradient(
+    25% 25%,
+    circle,
+    hsla(0, 0%, 100%, 0.3),
+    hsla(0, 0%, 0%, 0.3)
+  );
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.1),
+    inset 3px 3px 3px hsla(0, 0%, 100%, 0.2),
+    inset -3px -3px 3px hsla(0, 0%, 0%, 0.2),
+    23px 20px 3px hsla(0, 0%, 0%, 0.15);
+  content: "";
+  height: 12px;
+  left: -5px;
+  position: absolute;
+  top: -10px;
+  width: 12px;
+}
+.pin:before {
+  background-color: hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 0 0.25em hsla(0, 0%, 0%, 0.1);
+  content: "";
+
+  height: 24px;
+  width: 2px;
+  left: 0;
+  position: absolute;
+  top: 8px;
+
+  transform: rotate(57.5deg);
+  -moz-transform: rotate(57.5deg);
+  -webkit-transform: rotate(57.5deg);
+  -o-transform: rotate(57.5deg);
+  -ms-transform: rotate(57.5deg);
+
+  transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
 }
 </style>
 <script>
+import wallImg from "@/assets/wall.png";
+import { mapState } from "vuex";
+import _get from "lodash/get";
+
 export default {
-  name: "historial"
+  name: "wall",
+
+  data: () => ({
+    wallImg: wallImg,
+    styleBack: {}
+  }),
+
+  computed: {
+    ...mapState(["usuarios", "mensajes"])
+  },
+
+  created() {
+    this.styleBack = { "background-image": "url(" + this.wallImg + ")" };
+  },
+
+  methods: {
+    buscarAutor(uid) {
+      return (
+        _get(this.usuarios.find(usr => usr.uid === uid), "data.user.email") ||
+        "Sin nombre"
+      );
+    }
+  }
 };
 </script>
+

@@ -12,7 +12,7 @@
       <template v-if="mensajes.length">
         <div class="col-lg-4" v-for="mensaje in mensajes" :key="mensaje.uid">
           <div class="quote-container">
-            <i class="pin"></i>
+            <button class="pin" @click="aHistorial(mensaje)"></button>
             <blockquote class="note yellow">
               {{ mensaje.data.asunto }}
               <hr />
@@ -56,6 +56,9 @@ export default {
         _get(this.usuarios.find(usr => usr.uid === uid), "data.user.email") ||
         "Sin nombre"
       );
+    },
+    aHistorial(mensaje){
+      //
     }
   }
 };
