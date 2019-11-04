@@ -10,7 +10,7 @@
     </header>
     <section class="form-wrap">
       <section class="from-warp">
-        <a href="Usuarios.vue"><span class="fas fa-users-cog"></span></a>
+        <router-link to="/configuracion/usuarios"><span class="fas fa-users-cog"></span></router-link>
       </section>
       <form action="" class="form_contact">
         <div class="panel">
@@ -19,13 +19,14 @@
           </div>
           <div class="aj">
             Aquí puedes modificar tu estatus como usuario junto con el nombre de
-            tal al hacer click en este título o en la imágen
+            tal al hacer click en esta imágen
           </div>
         </div>
         <br />
       </form>
       <hr />
     </section>
+    <router-view></router-view>
   </div>
 </template>
 <style scoped>

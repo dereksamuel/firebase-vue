@@ -67,7 +67,7 @@ export default {
 
   created() {
     if (this.userLoged) this.$router.push("/muro");
-    setInterval(() => (this.back = !this.back), 5000);
+    setInterval(() => (this.back = !this.back), 6000);
   },
 
   methods: {
@@ -110,7 +110,7 @@ export default {
 }
 
 .secondback {
-  background-image: url("../assets/silla.jpg");
+  background-image: url("../assets/night.jpg");
 }
 
 .like-btn {

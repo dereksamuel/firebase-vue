@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     started: false,
     userLoged: null,
+    userfb: null,
     mensajes: [],
     usuarios: [],
     suscriptorMensajes: null,
@@ -32,10 +33,22 @@ export default new Vuex.Store({
             key: "userLoged",
             value: _pick(user, ["displayName", "email", "emailVerified", "uid"])
           });
+          firebase
+            .firestore()
+            .collection("usuario")
+            .doc(`user_${user.uid}`)
+            .get()
+            .then(fbuser => {
+              commit("setState", {
+                key: "userfb",
+                value: { uid: fbuser.uid, ...fbuser.data() }
+              });
+            });
           if (!state.suscriptorMensajes) dispatch("obtenerMensajesParaMi");
           if (!state.suscriptorUsuarios) dispatch("obtenerPosiblesUsuarios");
         } else {
           commit("setState", { key: "userLoged", value: null });
+          commit("setState", { key: "userfb", value: null });
           if (
             state.suscriptorMensajes &&
             typeof state.suscriptorMensajes === "function"

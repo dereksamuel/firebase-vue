@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100vw;">
-    <div class="circular-menu" :class="{ active: showLeftMenu }">
+    <div class="circular-menu" :class="{ active: showLeftMenu }" v-if="esDirectivo">
       <a class="floating-btn" @click="changeLeft()">
         <i class="fa fa-plus"></i>
       </a>
@@ -51,6 +51,9 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
+import _get from "lodash/get"
+
 export default {
   name: "custom-menu",
 
@@ -58,6 +61,13 @@ export default {
     showLeftMenu: false,
     showRightMenu: false
   }),
+
+  computed:{
+    ...mapState(["userfb"]),
+    esDirectivo(){
+      return _get(this.userfb, "tipo") && _get(this.userfb, "tipo") !== "basico"
+    }
+  },
 
   methods: {
     changeLeft() {
